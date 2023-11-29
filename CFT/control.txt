@@ -1,0 +1,9 @@
+load data
+ infile './MDM_CFT.csv'
+ badfile 'MDM_CFT.bad'
+ discardfile 'MDM_CFT.dsc'
+ replace
+ into table TempCFT
+ when (ID_M3_PROFILE <> ' ') and (ID_M3_CFT2RS <> ' ')
+ fields terminated by ";" optionally enclosed by '"'		  
+ ( ID_M3_PROFILE, ID_M3_CFT2RS )
